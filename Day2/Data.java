@@ -1,10 +1,5 @@
-class Hello {
+class Data {
     public static void main(String a[]) {
-
-        // //Day 1
-        System.out.println("Hello World");
-
-        // //Day 2
         // // Data Types
         byte i = 3;
         int by = 127;
@@ -28,5 +23,11 @@ class Hello {
         int numSep = 10_00_00_000;
         System.out.println(numSep);// will print 100000000
 
+        double numExp = 12e10;
+        System.out.println(numExp);// will print 1.2E11
+
+        char ch = 'a';
+        ch++;
+        System.out.println(ch);// print b
     }
 }
