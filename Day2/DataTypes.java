@@ -1,4 +1,4 @@
-class Data {
+class DataTypes {
     public static void main(String a[]) {
         // // Data Types
         byte i = 3;
