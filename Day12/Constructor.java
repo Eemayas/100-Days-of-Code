@@ -36,7 +36,7 @@ class Human {
 
 public class Constructor {
     public static void main(String[] args) {
-        // calling Default Constructor
+        // calling Default  Constructor
         Human obj = new Human();
         System.out.println(obj.getName() + " " + obj.getAge());
 
