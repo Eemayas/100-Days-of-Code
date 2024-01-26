@@ -1,4 +1,4 @@
-﻿# 100-Days-of-Code
+﻿# 100-Days-of-Code (Java)
 
 # Day 1 - Introduction of JAVA, JRE, JVM, WORA
 
@@ -7,8 +7,8 @@
 * JVM accept only byte code not normal code .
 * Java compiler convert the normal code into byte code.
 * You need to specify which file to run and that file must contain main method.
-* while execution, it will look for specific signature like public static void
-* main will accept some parameter: String a[]
+* While execution, it will look for specific signature like public static void
+* main will accept some parameter: ```String a[]```
 * Object-oriented
 * JVM is the part of Java Runtime Environment(JRE)
 * Java application is WORA Write Once Run Anywhere
@@ -17,37 +17,37 @@
 
 * Data stored permanently in database but while processing data is stored in variable temporarily.
 * Java is strongly type language meaning each type of data (such as integers, characters, strings, etc.) is explicitly defined and enforced, and the compiler or interpreter checks for type errors during compilation or runtime.
-* **"println"** will print the value and go to new line just like "\n" in C++.
+* ```println``` will print the value and go to new line just like ```\n``` in C++.
 
 **Data type (2 type):**
 * **Primitive**
-  * integers,
+  * Integers
   * Float
   * Characters
   * Boolean
 * …(talk about second type is later)
 
 **Literals**
-* **0b101****== binary format== will print 5
-* **0x7E**==Hex format==will print 126
-* **10_00_00_000"**==will print 100000000
+* **0b101** == > binary format== will print 5
+* **0x7E** == > Hex format==will print 126
+* **10_00_00_000"**== >will print 100000000
 * Character can also be incremented.
 
 # Day 3 - Type Conversion, Type Promotion, Assignment Operators, Relational Operators
 
-* Here, b is in byte and a is in int.
+* Here, ```b``` is in ```byte``` and ```a``` is in ```int```.
   * ```b=(byte)a;```==>casting(explicitly)
   * ```a=b```=>conversion(implicitly)
 * ```int x1=(int)5.6f;```  // will lose the value after the point
-* Conversion of int into byte will convert that into modulo.
+* Conversion of ```int``` into ```byte``` will convert that into modulo.
 Example:
 ```
-Byte b=127;
-Int a=257;
-b=(byte)a;// ⇒ b=257%256⇒value of a% range of byte(i.e. 256) ⇒ will print 1
+    byte b=127;
+    int a=257;
+    b=(byte)a;    // ⇒ b=257%256    ⇒value of a% range of byte(i.e. 256)  ⇒ will print 1
 ```
 **Type Promotion**
-For example the byte is multiplied by another byte the result will be byte but if the result is out of the range of byte then it can be saved in another type variable like int
+For example, the ```byte``` is multiplied by another ```byte``` the result will be ```byte``` but if the result is out of the range of ```byte``` then it can be saved in another type variable like ```int```
   ``` 
 byte b1 = 10;
 byte b2 = 30;
@@ -57,61 +57,61 @@ System.out.println("Type promotion example : " + result);// will print 30
 # Day 4 - Logical Operators, Conditional Statement (if-else,if-else-if, switch , variation of switch)
 * Java doesnot depend upon indentation
 ```
-if (x <= 10) 
-System.out.println("Value of x is less than or equal to 10");
-else 
-System.out.println("Value of x is greater than 10");//this will work fine
+    if (x <= 10) 
+    System.out.println("Value of x is less than or equal to 10");
+    else 
+    System.out.println("Value of x is greater than 10");//this will work fine
 ```
 * You have to use {} in if-else if you have multiple statement
 * Can add multiple match value in single case in switch statement 
 ```
-case "Saturday", "Sunday":
-       //code
+    case "Saturday", "Sunday":
+           //code
 ```
-* Can use ```->``` after case too
+* Can use ```->``` after case too.
 ```
-case "Saturday", "Sunday" ->
-        System.out.println("Alram at 6am");
+    case "Saturday", "Sunday" ->
+            System.out.println("Alram at 6am");
 ```
 * Switch can use as expression
 ```
-String alarm = switch (day) {
-         case "Saturday", "Sunday" -> "Alarm at 6am";
-         case "Monday" -> "Working Day, Alarm at 8am";
-         default -> "Alarm at 7 am";
-  };
+    String alarm = switch (day) {
+             case "Saturday", "Sunday" -> "Alarm at 6am";
+             case "Monday" -> "Working Day, Alarm at 8am";
+             default -> "Alarm at 7 am";
+      };
 ```
 * ```->``` can be replaced by ```:yield```
 ```
-String alram1 = switch (day) {
-     case "Saturday", "Sunday":
-                    yield "Alarm at 6am";
-      case "Monday":
-                    yield "Working Day, Alarm at 8am";
-        default:
-                 yield "Alarm at 7 am";
-  };
+    String alram1 = switch (day) {
+         case "Saturday", "Sunday":
+                        yield "Alarm at 6am";
+          case "Monday":
+                        yield "Working Day, Alarm at 8am";
+            default:
+                     yield "Alarm at 7 am";
+      };
 ```
 
 # Day 5 - Loops, class, Objects
 
 * If you know the number of iteration, condition, initial , then it is best to use for loop.
-* While reading the file, you donot have the required number of iteration, you just have to check for EndOfFile(EOF) then it is best to use while loop.
+* While reading the file, you donot have the required number of iteration, you just have to check for ```EndOfFile(EOF)``` then it is best to use while loop.
 * When you have execute code once regardless of the condition, then do-while is best. For operation like reading database.
 * In Java, what you want to do you have to do it in class.
 * Class can be create in same file
 * ```className variableName;``` ⇒ will only create reference, the object isnot begin created yet.
 * ```className variableName=new className(); ```⇒ will initilzed the object of the class
 ```
-For example:
-           ClassName ⇒ Calculator{....}
-            Initialization ⇒ Calculator Cal=new Calculator();
+    For example:
+        ClassName ⇒ Calculator{....}
+        Initialization ⇒ Calculator Cal=new Calculator();
 ```
 * To call the method of the class, you have to ```classVariableName.funcName```
 ```
-For Example:
+    For Example:
         funcName ⇒```public int add() {}```
-         Calling method ⇒ ```int result = Cal.add();```
+            Calling method ⇒ ```int result = Cal.add();```
 ```
 
 # Day 6 - JRE, JVM, JDK, Method, Array, Stack, Heap
@@ -132,31 +132,31 @@ For Example:
 * Data stored in stack in sequence but in heap, data is stored in open space
 * Every method has its own stack.
 * Variable created inside the method 
-             ⇒local variable 
-              ⇒reside in Stack
+    * reside in Stack
+    * local variable 
 * When creating the new object of the class, it will create it in heap. That object will have their own address.
 * Inside that object, there is two section: instance variable and method declaration. 
-* In stack, local variable-value pair, (objName-of-class)-(address-of-new-instance-of-class-in-heap) pair is stored 
+* In stack, ```local variable-value pair```, ```(objName-of-class)-(address-of-new-instance-of-class-in-heap)``` pair is stored .
 ```
-class Calculator {
-          int a;// instance variable ⇒ stored in heap
-
-            // method declaration stored in heap but the definition is in their own stack
-          public int add(int num1, int num2) {
-                           // num1 and num2 are local variable ⇒ stored in stack
-            …    }
-
-          // Overloading the add Function
-          public int add(int num1, int num2, int num3) {
-                          ….    }
- }
+    class Calculator {
+        int a;// instance variable ⇒ stored in heap
+    
+        // method declaration stored in heap but the definition is in their own stack
+        public int add(int num1, int num2) {
+                        // num1 and num2 are local variable ⇒ stored in stack
+        …    }
+    
+        // Overloading the add Function
+        public int add(int num1, int num2, int num3) {
+                        ….    }
+     }
 ```
 
 **Initialization of Array :**
 * ```int num[]=new int [required-size-of-array];```
     * Content of the array is not known
     * You cannot change the sized dynamically.
-    * Initially all the value is 0.
+    * Initially all the value is ```0```.
 * ```int num[] = { 1, 2, 3 }; ```
     * content of the array is known
 
@@ -188,7 +188,7 @@ numj[2]=new int[2];
 
 * ```Math.random() ```
      * return the random double value 
-     * range 0.0 to 1.0
+     * range ```0.0``` to ```1.0```
 
 * ```for (int n : nums) {}``` 
     * can loop through the array. This example array is nums
@@ -199,7 +199,7 @@ numj[2]=new int[2];
 
 **Kinda drawbacks of Array**
 * Length is fixed during initialization.
-* Searching and inserting ⇒ traverse all value ⇒more computation.
+* Searching and inserting     ⇒ traverse all value     ⇒more computation.
 * No array of different type.
 
 # Day 8 - String, Mutable & Immutable String, StringBuffer, StringBuilder
@@ -227,7 +227,7 @@ String name1 = new String("Prashant");
 
 * ```name3 = name3 + " Manandhar"; ```
     * Creating a new object in string constant pool in  heap and changing the address in variableName-Address pair in Strack
-    * *Prashant previously stored in the name3 will be eligible for garbage collection and removed after some time to free up some memory
+    * Prashant previously stored in the name3 will be eligible for garbage collection and removed after some time to free up some memory
 
  * Once you create a object you can  change it. Changes will create the new object.
 
@@ -267,11 +267,207 @@ StringBuffer sb= new StringBuffer("Prashant");
 * Below code will run if any new class object has been  created.
 ```
     public Mobile(){
-                           brand="New Brand";
-                            price=00;
-                            System.out.println("in a constructor");
-                }
+        brand="New Brand";
+        price=00;
+        System.out.println("in a constructor");
+    }
 ```
 * Class can be loaded by two type
     * by creating a object ⇒ execute static for 1st classobject created and constructure for every object created
     * by using ```Class.forName("className");``` ⇒ will only execute the static block only
+
+# Day 10 - Encapsulation
+* ```Private``` ⇒ we can use the variable from the same class. Outside the class the usage of the variable is not possible.
+* Only way of access this is by method.
+```
+    private int age;
+    private String name;
+    
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+```
+
+* ```getAge``` and ```setAge``` are getter and seller function
+
+# Day 11 - ```this``` keyword
+* The ```this``` keyword is often used to distinguish instance variables from local variables with the same name.
+* The ```this``` keyword is used within the scope of a class to refer to the current instance of the class. It emphasizes the instance-level scope and is not applicable outside the context of a class.
+
+# Day 12 - Default Constructor, Parameterized Constructor
+* When initialization of the object of the class, by default the int value is 0 and string is null.
+* Default constructor is used to assigned the value when created.
+
+# Constructor
+* look like the method itself.
+* No need for return type.
+* Name of the constructor should be same as the class Name
+*Call every time when object is created.
+```
+    // Default Constructor
+        public Human() {
+                age = 20;
+                name = "Prashant";
+                System.out.println("in constructor");
+        }
+
+    // calling Default Constructor
+    Human obj = new Human();
+```
+* If you want to perform any operation, do it in method do not do it in statement.
+* For database initialization, you can do in constructors.
+* Constructor with parameter is called Parameterized constructor
+```
+    // Parameterized Constructor
+    public Human(int age, String name) {
+                this.age = age;
+                this.name = name;
+                System.out.println("in constructor");
+    }
+
+    // calling Parameterized Constructor
+    Human obj1 = new Human(30,"Ram");
+```
+
+* I think we can create parameterized constructor only but the ```Human obj = new Human();``` will give error you have to use parametrized in calling too.
+
+# Day 13 - Super and This Method, Naming 
+```
+class A { // super class
+    ………………..
+}
+
+class B extends A {
+    ……………
+}
+```
+* Creating the object of the B  the constructor of the A (super class) is also called. 
+* When the default constructor of B is called, the default constructor is called.
+* When the parameterized constructor of B is called, the default constructor is called 
+
+**Super()**
+* First statement of the constructor is by default super, even though you have not mentioned it.
+* meaning “call the default constructor of the super class”.
+
+* ```super();``` ⇒will call the default constructor of super class i.e ```A```
+* ```super(actual parameter);```⇒ will call the parameterized constructor of super class i.e ```A```.
+
+* Every class in java extends Object class
+
+* ```this();```  ⇒ call the constructor of same class
+```
+    //Calling 
+    B obj1 = new B(5);
+    
+    //class
+    class B extends A {
+            public B() {
+            System.out.println("In constructor B");
+        }
+    }
+    
+    public B(int n) {
+        this();
+        System.out.println("In Parameterized B ");
+    }
+```         
+* will print
+```
+    In constructor A
+    In constructor B
+    In Parameterized B
+```
+* Program flow was first call parameterized constructor and this of parameterized constructor call default constructor B and default constructor B call default constructor A and print ```“In constructor A”``` and return to default constructor B and print ```“In constructor B”``` and return to parameterized constructor B and print ```“In Parameterized B”```.
+
+**Naming**
+* camel casing.
+* class and interface name ⇒ first letter should be capital ⇒ ```Class```, ```MyClass```
+* variable and method ⇒ start small ⇒```marks```, ```show()```, ```showMyName()```
+* consts ⇒ all capital⇒ ```PIE```,```BRAND```
+* ```Human()``` ⇒constructor ⇒ first name capital implies class and () implied method
+
+# Day 14 - Anonymous Object, Inheritance, Types of Inheritance
+
+**```new A()```**
+* create an object.
+* anonymous object because it has no name.
+* no way of reusing this kind of object.
+
+**Type of Inheritance**
+* Single Level
+* Multilevel 
+</br>
+* **Multiple Inheritance is not allowed in Java.**
+    * If multiple inheritance is allowed then, If the class C have parent A, B then if C call the method/ variable which exist in both A and B, then problem arise that the what C will call the variable of. Is it of A or B? This is called **ambiguity problem**
+
+# Day 15 - Method overriding, package
+ 
+* **Method Overriding** ⇒ overriding the function in child class by having the same name as the function name in the parent class.
+* Every class we used is imported from the package
+* Java.lang.* is defaulted imported.
+* * will imported all the file in that place. Only file not Folder.
+* Prebuilt library can be searched in https://mvnrepository.com/
+
+# Day 16 - Access Modifier
+ 
+* If you wan to access outside the class, make it public.
+* *Public* mean you can access by anywhere
+* *Private* mean you cannot use it outside the class. It can be use in same class only.
+* Cannot have the two public class in the same file
+
+**Try to make**
+                  Classes⇒ public
+                   Instance variable ⇒private
+                   Function we want to access in same class or its sub class ⇒protected
+
+* Try to avoid default. Default means to donot know what you want to give the access.
+
+# Day 17 - Polymorphism
+ 
+**Polymorphism**⇒ behavior change in different places.
+**Types**
+* Compile time (Early binding)
+* Runtime (Late binding)
+
+**Compile time**
+* Behavior is defined at compile time
+* Overloading
+```
+// Example of method overloading:
+    class Calculator {
+        int add(int a, int b) {
+            return a + b;
+        }
+        double add(double a, double b) {
+            return a + b;
+        }
+    }
+```
+
+**RunTime**
+* Behavior is defined at Runtime
+* Overriding
+```
+    class Animal {
+        void sound() {
+            System.out.println("Animal makes a sound");
+        }
+    }
+    
+    class Dog extends Animal {
+        void sound() {
+            System.out.println("Dog barks");
+        }
+    }
+```
+
+
+In main:
+```
+    // Example of run-time polymorphism:
+    Animal animal = new Dog();
+    animal.sound(); // This will call the sound() method of the Dog class
+```
