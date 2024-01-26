@@ -21,10 +21,10 @@
 
 ## Data type:(2 type)
 * **Primitive**
-          * integers,
-          * Float
-          * Characters
-          * Boolean
+_ * integers,
+_ * Float
+_ * Characters
+_ * Boolean
 * …(talk about second type is later)
 
 ## Literals
