@@ -8,7 +8,7 @@
 * Java compiler convert the normal code into byte code.
 * You need to specify which file to run and that file must contain main method.
 * While execution, it will look for specific signature like public static void
-* main will accept some parameter: ```String a[]```
+* main will accept some parameter: ``String a[]``
 * Object-oriented
 * JVM is the part of Java Runtime Environment(JRE)
 * Java application is WORA Write Once Run Anywhere
@@ -17,7 +17,7 @@
 
 * Data stored permanently in database but while processing data is stored in variable temporarily.
 * Java is strongly type language meaning each type of data (such as integers, characters, strings, etc.) is explicitly defined and enforced, and the compiler or interpreter checks for type errors during compilation or runtime.
-* ```println``` will print the value and go to new line just like ```\n``` in C++.
+* ``println`` will print the value and go to new line just like ``\n`` in C++.
 
 **Data type (2 type):**
 * **Primitive**
@@ -35,11 +35,11 @@
 
 # Day 3 - Type Conversion, Type Promotion, Assignment Operators, Relational Operators
 
-* Here, ```b``` is in ```byte``` and ```a``` is in ```int```.
-  * ```b=(byte)a;```==>casting(explicitly)
-  * ```a=b```=>conversion(implicitly)
-* ```int x1=(int)5.6f;```  // will lose the value after the point
-* Conversion of ```int``` into ```byte``` will convert that into modulo.
+* Here, ``b`` is in ``byte`` and ``a`` is in ``int``.
+  * ``b=(byte)a;``==>casting(explicitly)
+  * ``a=b``=>conversion(implicitly)
+* ``int x1=(int)5.6f;``  // will lose the value after the point
+* Conversion of ``int`` into ``byte`` will convert that into modulo.
 Example:
 ```
     byte b=127;
@@ -47,7 +47,7 @@ Example:
     b=(byte)a;    // ⇒ b=257%256    ⇒value of a% range of byte(i.e. 256)  ⇒ will print 1
 ```
 **Type Promotion**
-For example, the ```byte``` is multiplied by another ```byte``` the result will be ```byte``` but if the result is out of the range of ```byte``` then it can be saved in another type variable like ```int```
+For example, the ``byte`` is multiplied by another ``byte`` the result will be ``byte`` but if the result is out of the range of ``byte`` then it can be saved in another type variable like ``int``
   ``` 
 byte b1 = 10;
 byte b2 = 30;
@@ -62,13 +62,13 @@ System.out.println("Type promotion example : " + result);// will print 30
     else 
     System.out.println("Value of x is greater than 10");//this will work fine
 ```
-* You have to use {} in if-else if you have multiple statement
+* You have to use ``{}`` in ``if-else`` if you have multiple statement
 * Can add multiple match value in single case in switch statement 
 ```
     case "Saturday", "Sunday":
            //code
 ```
-* Can use ```->``` after case too.
+* Can use ``->`` after case too.
 ```
     case "Saturday", "Sunday" ->
             System.out.println("Alram at 6am");
@@ -81,7 +81,7 @@ System.out.println("Type promotion example : " + result);// will print 30
              default -> "Alarm at 7 am";
       };
 ```
-* ```->``` can be replaced by ```:yield```
+* ``->`` can be replaced by ``:yield``
 ```
     String alram1 = switch (day) {
          case "Saturday", "Sunday":
@@ -96,18 +96,18 @@ System.out.println("Type promotion example : " + result);// will print 30
 # Day 5 - Loops, class, Objects
 
 * If you know the number of iteration, condition, initial , then it is best to use for loop.
-* While reading the file, you donot have the required number of iteration, you just have to check for ```EndOfFile(EOF)``` then it is best to use while loop.
+* While reading the file, you donot have the required number of iteration, you just have to check for ``EndOfFile(EOF)`` then it is best to use while loop.
 * When you have execute code once regardless of the condition, then do-while is best. For operation like reading database.
 * In Java, what you want to do you have to do it in class.
 * Class can be create in same file
-* ```className variableName;``` ⇒ will only create reference, the object isnot begin created yet.
-* ```className variableName=new className(); ```⇒ will initilzed the object of the class
+* ``className variableName;`` ⇒ will only create reference, the object isnot begin created yet.
+* ``className variableName=new className(); ``⇒ will initilzed the object of the class
 ```
     For example:
         ClassName ⇒ Calculator{....}
         Initialization ⇒ Calculator Cal=new Calculator();
 ```
-* To call the method of the class, you have to ```classVariableName.funcName```
+* To call the method of the class, you have to ``classVariableName.funcName``
 ```
     For Example:
         funcName ⇒```public int add() {}```
@@ -136,7 +136,7 @@ System.out.println("Type promotion example : " + result);// will print 30
     * local variable 
 * When creating the new object of the class, it will create it in heap. That object will have their own address.
 * Inside that object, there is two section: instance variable and method declaration. 
-* In stack, ```local variable-value pair```, ```(objName-of-class)-(address-of-new-instance-of-class-in-heap)``` pair is stored .
+* In stack, ``local variable-value pair``, ``(objName-of-class)-(address-of-new-instance-of-class-in-heap)`` pair is stored .
 ```
     class Calculator {
         int a;// instance variable ⇒ stored in heap
@@ -156,7 +156,7 @@ System.out.println("Type promotion example : " + result);// will print 30
 * ```int num[]=new int [required-size-of-array];```
     * Content of the array is not known
     * You cannot change the sized dynamically.
-    * Initially all the value is ```0```.
+    * Initially all the value is ``0``.
 * ```int num[] = { 1, 2, 3 }; ```
     * content of the array is known
 
@@ -184,11 +184,11 @@ numj[1]=new int[4];
 numj[2]=new int[2];
 ```
 
-* ```arrayName.length``` ⇒ length of the array
+* ``arrayName.length`` ⇒ length of the array
 
-* ```Math.random() ```
+* ``Math.random() ``
      * return the random double value 
-     * range ```0.0``` to ```1.0```
+     * range ``0.0`` to ``1.0``
 
 * ```for (int n : nums) {}``` 
     * can loop through the array. This example array is nums
@@ -204,7 +204,7 @@ numj[2]=new int[2];
 
 # Day 8 - String, Mutable & Immutable String, StringBuffer, StringBuilder
 
-* String in double quote ⇒``` “” ```
+* String in double quote ⇒`` “” ``
 * Sting is actually a class 
 
 **Initialization of string**
@@ -213,10 +213,10 @@ String name = "Prashant";
     Or
 String name1 = new String("Prashant");
 ```
-* ```name1.hashCode``` ⇒ Returns a hash code for this string. The hash code for a String object is computed as   s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
-* ```+``` ⇒ concatenate the String
-* ```name1.concat(" Manandhar")``` ⇒Concatenates the specified string to the end of this string.
-* ```name1.charAt(0);``` ⇒Returns the char value at the specified index.
+* ``name1.hashCode`` ⇒ Returns a hash code for this string. The hash code for a String object is computed as   s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+* ``+`` ⇒ concatenate the String
+* ``name1.concat(" Manandhar")`` ⇒Concatenates the specified string to the end of this string.
+* ``name1.charAt(0);`` ⇒Returns the char value at the specified index.
 
 * Heap consist of string constant pool. It cannot be changed.
 * Here, the only one of the object is created in string constant pool in  heap and name3 and name4 are the reference to that object address in the heap
@@ -243,10 +243,26 @@ StringBuffer sb= new StringBuffer();
             Or
 StringBuffer sb= new StringBuffer("Prashant");
 ```
+**StringBuffer**
+* provide you with buffer of size
+* size can be calculated by  ``sb.capacity()``
+* initially size is ``16`` later will increase
+<br/>
+ * ``sb.length()`` ⇒ length of the string
+ * ``sb.append(" Manandhar") ``⇒Appends the specified string to this character sequence.
+ * ``sb.deleteCharAt(5)``` ⇒Removes the char at the specified position in this sequence. This sequence is shortened by one char.
+ * ```sb.insert(0,"Java ")``` ⇒Inserts the string into this character sequence.
+
+**Conversion of StringBuffer to String**
+``String ss=sb.toString();``
+
+ * **StringBuffer**⇒ thread-safe
+ * **Stringbuilder**⇒ not thread-safe
+* Thread (..Talk about this later)
 
 # Day 9 - Static Variable, Static Methos, Static Block
 * Static variable will be shared by every objects
-* Static variable can be accessed and modified by ```className.staticVariableName```
+* Static variable can be accessed and modified by ``className.staticVariableName``
 * You can only use static variable inside the static method. Using the non static variable will create an error.
 * To use the nonstatic variable you have ti use the object reference pass to the static function like this
 ```
@@ -274,10 +290,10 @@ StringBuffer sb= new StringBuffer("Prashant");
 ```
 * Class can be loaded by two type
     * by creating a object ⇒ execute static for 1st classobject created and constructure for every object created
-    * by using ```Class.forName("className");``` ⇒ will only execute the static block only
+    * by using ``Class.forName("className");`` ⇒ will only execute the static block only
 
 # Day 10 - Encapsulation
-* ```Private``` ⇒ we can use the variable from the same class. Outside the class the usage of the variable is not possible.
+* ``Private`` ⇒ we can use the variable from the same class. Outside the class the usage of the variable is not possible.
 * Only way of access this is by method.
 ```
     private int age;
@@ -291,11 +307,11 @@ StringBuffer sb= new StringBuffer("Prashant");
     }
 ```
 
-* ```getAge``` and ```setAge``` are getter and seller function
+* ``getAge`` and ``setAge`` are getter and seller function
 
-# Day 11 - ```this``` keyword
-* The ```this``` keyword is often used to distinguish instance variables from local variables with the same name.
-* The ```this``` keyword is used within the scope of a class to refer to the current instance of the class. It emphasizes the instance-level scope and is not applicable outside the context of a class.
+# Day 11 - ``this`` keyword
+* The ``this`` keyword is often used to distinguish instance variables from local variables with the same name.
+* The ``this`` keyword is used within the scope of a class to refer to the current instance of the class. It emphasizes the instance-level scope and is not applicable outside the context of a class.
 
 # Day 12 - Default Constructor, Parameterized Constructor
 * When initialization of the object of the class, by default the int value is 0 and string is null.
@@ -332,7 +348,7 @@ StringBuffer sb= new StringBuffer("Prashant");
     Human obj1 = new Human(30,"Ram");
 ```
 
-* I think we can create parameterized constructor only but the ```Human obj = new Human();``` will give error you have to use parametrized in calling too.
+* I think we can create parameterized constructor only but the ``Human obj = new Human();`` will give error you have to use parametrized in calling too.
 
 # Day 13 - Super and This Method, Naming 
 ```
@@ -352,12 +368,12 @@ class B extends A {
 * First statement of the constructor is by default super, even though you have not mentioned it.
 * meaning “call the default constructor of the super class”.
 
-* ```super();``` ⇒will call the default constructor of super class i.e ```A```
-* ```super(actual parameter);```⇒ will call the parameterized constructor of super class i.e ```A```.
+* ``super();`` ⇒will call the default constructor of super class i.e ``A``
+* ``super(actual parameter);``⇒ will call the parameterized constructor of super class i.e ``A``.
 
 * Every class in java extends Object class
 
-* ```this();```  ⇒ call the constructor of same class
+* ``this();``  ⇒ call the constructor of same class
 ```
     //Calling 
     B obj1 = new B(5);
@@ -380,14 +396,14 @@ class B extends A {
     In constructor B
     In Parameterized B
 ```
-* Program flow was first call parameterized constructor and this of parameterized constructor call default constructor B and default constructor B call default constructor A and print ```“In constructor A”``` and return to default constructor B and print ```“In constructor B”``` and return to parameterized constructor B and print ```“In Parameterized B”```.
+* Program flow was first call parameterized constructor and this of parameterized constructor call default constructor B and default constructor B call default constructor A and print ``“In constructor A”`` and return to default constructor B and print ``“In constructor B”`` and return to parameterized constructor B and print ``“In Parameterized B”``.
 
 **Naming**
 * camel casing.
-* class and interface name ⇒ first letter should be capital ⇒ ```Class```, ```MyClass```
-* variable and method ⇒ start small ⇒```marks```, ```show()```, ```showMyName()```
-* consts ⇒ all capital⇒ ```PIE```,```BRAND```
-* ```Human()``` ⇒constructor ⇒ first name capital implies class and () implied method
+* class and interface name ⇒ first letter should be capital ⇒ ``Class``, ``MyClass``
+* variable and method ⇒ start small ⇒``marks``, ``show()``, ``showMyName()``
+* consts ⇒ all capital⇒ ``PIE``,``BRAND``
+* ``Human()`` ⇒constructor ⇒ first name capital implies class and () implied method
 
 # Day 14 - Anonymous Object, Inheritance, Types of Inheritance
 
@@ -407,8 +423,8 @@ class B extends A {
  
 * **Method Overriding** ⇒ overriding the function in child class by having the same name as the function name in the parent class.
 * Every class we used is imported from the package
-* Java.lang.* is defaulted imported.
-* * will imported all the file in that place. Only file not Folder.
+* ``Java.lang.*`` is defaulted imported.
+    * will imported all the file in that place. Only file not Folder.
 * Prebuilt library can be searched in https://mvnrepository.com/
 
 # Day 16 - Access Modifier
