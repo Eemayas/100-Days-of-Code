@@ -12,3 +12,23 @@
 * Object-oriented
 * JVM is the part of Java Runtime Environment(JRE)
 * Java application is WORA Write Once Run Anywhere
+
+#DAY 2 Variables, Data type, Literals
+
+* Data stored permanently in database but while processing data is stored in variable temporarily.
+* Java is strongly type language meaning each type of data (such as integers, characters, strings, etc.) is explicitly defined and enforced, and the compiler or interpreter checks for type errors during compilation or runtime.
+* "println" will print the value and go to new line just like \n in C++.
+
+## Data type:(2 type)
+* **Primitive**
+          * integers,
+          * Float
+          * Characters
+          * Boolean
+* …(talk about second type is later)
+
+## Literals
+* **0b101****== binary format== will print 5
+* **0x7E**==Hex format==will print 126
+* **10_00_00_000"**==will print 100000000
+* Character can also be incremented.
