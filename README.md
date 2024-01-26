@@ -1,6 +1,6 @@
 ﻿# 100-Days-of-Code
 
-# Day1 - Introduction of JAVA, JRE, JVM, WORA
+# Day 1 - Introduction of JAVA, JRE, JVM, WORA
 
 * Java is platform independent because you can run on any machine irrespective of hardware or OS. but it must have JVM.
 * JVM is not platform independent. JVM must be built for that particular OS.
@@ -13,7 +13,7 @@
 * JVM is the part of Java Runtime Environment(JRE)
 * Java application is WORA Write Once Run Anywhere
 
-#DAY 2 Variables, Data type, Literals
+# DAY 2 Variables, Data type, Literals
 
 * Data stored permanently in database but while processing data is stored in variable temporarily.
 * Java is strongly type language meaning each type of data (such as integers, characters, strings, etc.) is explicitly defined and enforced, and the compiler or interpreter checks for type errors during compilation or runtime.
