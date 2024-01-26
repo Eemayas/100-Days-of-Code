@@ -166,13 +166,6 @@ class Calculator {
 
 ```int nums[][]=new int[3][4];```
 
-```Math.random() ```
- * return the random double value 
- * range 0.0 to 1.0
-
-```for (int n : nums) {}``` 
-    * can loop through the array. This example array is nums
-
 **Regular array** 
  * Have same column number for all rows
  
@@ -193,11 +186,92 @@ numj[2]=new int[2];
 
 * ```arrayName.length``` ⇒ length of the array
 
+* ```Math.random() ```
+     * return the random double value 
+     * range 0.0 to 1.0
+
+* ```for (int n : nums) {}``` 
+    * can loop through the array. This example array is nums
+
 **Initialization of 3D Array**
 
 ```int num3d[][][]=new int[3][3][3];```
 
 **Kinda drawbacks of Array**
-    * Length is fixed during initialization.
-    * Searching and inserting ⇒ traverse all value ⇒more computation.
-    * No array of different type.
+* Length is fixed during initialization.
+* Searching and inserting ⇒ traverse all value ⇒more computation.
+* No array of different type.
+
+# Day 8 - String, Mutable & Immutable String, StringBuffer, StringBuilder
+
+* String in double quote ⇒``` “” ```
+* Sting is actually a class 
+
+**Initialization of string**
+```
+String name = "Prashant";
+    Or
+String name1 = new String("Prashant");
+```
+* ```name1.hashCode``` ⇒ Returns a hash code for this string. The hash code for a String object is computed as   s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
+* ```+``` ⇒ concatenate the String
+* ```name1.concat(" Manandhar")``` ⇒Concatenates the specified string to the end of this string.
+* ```name1.charAt(0);``` ⇒Returns the char value at the specified index.
+
+* Heap consist of string constant pool. It cannot be changed.
+* Here, the only one of the object is created in string constant pool in  heap and name3 and name4 are the reference to that object address in the heap
+```
+    String name3 = "Prashant";
+    String name4 = "Prashant";
+```
+
+* ```name3 = name3 + " Manandhar"; ```
+    * Creating a new object in string constant pool in  heap and changing the address in variableName-Address pair in Strack
+    * *Prashant previously stored in the name3 will be eligible for garbage collection and removed after some time to free up some memory
+
+ * Once you create a object you can  change it. Changes will create the new object.
+
+**Types of String**
+* Mutable String ⇒ change
+* Non-Mutable String(Default) ⇒unchanged
+
+* For mutable string, you use String Buffer class or string builder class
+
+**Initilization of StringBuffer**
+```
+StringBuffer sb= new StringBuffer();
+            Or
+StringBuffer sb= new StringBuffer("Prashant");
+```
+
+# Day 9 - Static Variable, Static Methos, Static Block
+* Static variable will be shared by every objects
+* Static variable can be accessed and modified by ```className.staticVariableName```
+* You can only use static variable inside the static method. Using the non static variable will create an error.
+* To use the nonstatic variable you have ti use the object reference pass to the static function like this
+```
+    public static void show1(Mobile obj) {
+                        System.out.println(obj.brand + " " + obj.price + " " + name);
+            }
+```
+* Main is static from start. If the main is not static then we first have to create the object of the class in which the main is defined. If the main is not executed, there is no way of creating the object. So this will create the deadlock.
+* Making the main static, you don't need the object.
+    * will run only once, no matter how many time the class obje has been created.
+    * when the class is loaded, the static block will be called. Then after the object of the class is created.
+```
+      static {
+                name = "Mobile";
+            }
+```
+
+* Below code will run if any new class object has been  created.
+```
+    public Mobile(){
+                           brand="New Brand";
+                            price=00;
+                            System.out.println("in a constructor");
+                }
+```
+* Class can be loaded by two type
+    * by creating a object ⇒ execute static for 1st classobject created and constructure for every object created
+    * by using ```Class.forName("className");``` ⇒ will only execute the static block only
