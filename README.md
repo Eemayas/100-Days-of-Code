@@ -247,14 +247,16 @@ StringBuffer sb= new StringBuffer("Prashant");
 * provide you with buffer of size
 * size can be calculated by  ``sb.capacity()``
 * initially size is ``16`` later will increase
-<br/>
- * ``sb.length()`` ⇒ length of the string
- * ``sb.append(" Manandhar") ``⇒Appends the specified string to this character sequence.
- * ``sb.deleteCharAt(5)``` ⇒Removes the char at the specified position in this sequence. This sequence is shortened by one char.
- * ```sb.insert(0,"Java ")``` ⇒Inserts the string into this character sequence.
 
 **Conversion of StringBuffer to String**
-``String ss=sb.toString();``
+```
+String ss=sb.toString();
+```
+
+* ``sb.length()`` ⇒ length of the string
+* ``sb.append(" Manandhar") ``⇒Appends the specified string to this character sequence.
+* ``sb.deleteCharAt(5)`` ⇒Removes the char at the specified position in this sequence. This sequence is shortened by one char.
+* ``sb.insert(0,"Java ")`` ⇒Inserts the string into this character sequence.
 
  * **StringBuffer**⇒ thread-safe
  * **Stringbuilder**⇒ not thread-safe
