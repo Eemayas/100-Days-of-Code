@@ -487,3 +487,53 @@ In main:
     Animal animal = new Dog();
     animal.sound(); // This will call the sound() method of the Dog class
 ```
+
+# Day 18 - ``final`` keyword, ``Object`` class
+* ``final`` keyword can be used with the variable, method,class.
+
+**Initialization of final variable**
+```final int num = 0;```
+
+* ``final`` variable is equivalent to const in c.
+* You cannot change the value in ``final`` variable.
+```
+    final int num = 0;
+    num =9; //error: cannot assign a value to final variable num
+```
+**Initialization of final class**
+```
+final class Calc {
+    …………….
+}
+```
+* ``final`` class cannot be inherited by other class. Error like this will appear
+```
+    final class A{
+    }
+    class B extends A{  //The type B cannot subclass the final class A
+    }
+    Error:	
+     The type B cannot subclass the final class A 
+```
+**Initialization of final method**
+```
+    final public void show() {
+            System.out.println("In calc Show()");
+    }
+```
+* Making the method ``final`` will stop the method overring.
+```
+    In class A
+    final public void show() {
+            System.out.println("In calc Show()");
+    }
+    In class B
+    public void show() {
+    }
+    Error:
+    Cannot override the final method from A
+```
+* ``System.out.println(obj);`` by default call`` System.out.println(obj.toString());``
+* ``toString()`` is called from the superclass i.e is ``Object`` class. As we know all the class have the super class i.e ``object`` class.
+* ``.equal`` need to have the equal  value and equal  hash 
+* You can generate the ``equals`` and ``hashCode`` automatically generate in vscode. You can do that by right click in code section of the class and go to ``Source Action`` and ``Generate hashCode and equals….`` And voila
