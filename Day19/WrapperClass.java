@@ -1,0 +1,7 @@
+/**
+ * WrapperClass
+ */
+public class WrapperClass {
+
+    
+}
