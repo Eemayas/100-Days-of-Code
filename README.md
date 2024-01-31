@@ -648,3 +648,38 @@ String str1=Integer.toString(23); //convert number into string
 **Concrete class:** A class other than an abstract class is known as a concrete class.
 - An object of a concrete class can be created.
 
+# Day 22 - Inner class
+**Inner Class:**
+* We can also create a class inside another class.
+```
+ class A{ 
+      class B{
+      }
+ }
+```
+* Creating the new object of class B. You first have to create the object of the class A.
+```
+A obj = new A();
+A.B obj1= obj.new B();
+```
+* A dollar sign will be introduced in a class name that has an inner class indicating two different classes.
+```
+ A$B. class
+```
+* You also need to create an object of the outer class, to call the methods of an inner class.
+
+**Static Inner Class**
+* An inner class can also be declared as static.
+```
+    static class B {
+             }
+    In main
+    A.B obj1 = new A.B();
+```
+* When an inner class is declared as static, then you do not need to create an object for it.
+* But an outer class can not be made static.
+
+**Advantage of inner class**
+* Nested classes represent a particular type of relationship that is it can access all the members * of the outer class, including private.
+* Nested classes make the code more readable and maintainable.
+* It makes the code more optimize.
