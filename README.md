@@ -683,3 +683,55 @@ A.B obj1= obj.new B();
 * Nested classes represent a particular type of relationship that is it can access all the members * of the outer class, including private.
 * Nested classes make the code more readable and maintainable.
 * It makes the code more optimize.
+
+
+# Day 23 - Anonymous Inner Class, Anonymous Inner Class and Abstract Class
+**Anonymous Inner Class**
+* Anonymous means something that does not have a name.
+* In overriding, to provide a new implementation of a method, we need to create a new class and extend it with the parent class. After extending the class, we override the method.
+* We can avoid the overriding and do not need to create a new class for this particular task.
+* We can use the inner class concept to give a new implementation of a method.
+* Anonymous class used in the interface, functional interface, lambda expressions.
+* Anonymous inner class can implement only one interface at s time.
+* It can either extend a class or implement an interface at a time.
+* We do not write a constructor for an anonymous inner class because it does not have any class * name.
+* An anonymous class has access to the members of its enclosing class.
+
+**Initialization of Anonymous class**
+* We can create a new anonymous inner class after creating an object of a class that contains the method.
+* We do not need to use a class keyword with an anonymous inner class.
+* It just starts with braces and contains the method and its new implementation.
+* Anonymous inner class starts just the creation of an object and ends with the semicolon of that object.
+```
+  A obj = new A() {
+            // overridding with anonymous inner class
+            void show() {
+                System.out.println("Inside the anonymous inner class");
+            }
+        };
+```
+
+**Abstract And Anonymous Class**
+* When you want to use an interface and an abstract class only once, then you can simply use an anonymous innner class in place of that.
+* You can also provide the implementation for multiple methods in an anonymous inner class.
+* Anonymous inner class can implement only one interface at s time.
+* Anonymous inner class can either extend a class or implement an interface at a time.
+* We can create object for abstract class by providing the implementation of an abstract method in an anonymous inner class.
+```
+    abstract class A {
+        abstract void show();
+    }
+    
+    In main methid:
+    // here we are not creating the object of abstract class but the object of the inner class
+    A obj = new A() {
+        // overridding with anonymous inner class
+        void show() {
+            System.out.println("Inside the anonymous inner class");
+        }
+    };
+    obj.show();
+    
+    // A obj1 = new A(); // cannot call this beacuse of the abstract class
+    // obj1.show();
+```
