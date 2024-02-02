@@ -735,3 +735,35 @@ A.B obj1= obj.new B();
     // A obj1 = new A(); // cannot call this beacuse of the abstract class
     // obj1.show();
 ```
+
+# Day 24 - Need of Interface
+* We can also pass an object as a parameter in a method.
+* When you build an application, you need to make it more flexible.
+* We can create a reference of the parent class and an object of the sub-class.
+* Passing reference and the reference of an object that you accept in a method, both should be the same.
+
+**Interface:-**
+* Interface in Java is used to achieve abstraction.
+* Interface is used to design an application to make it loosely coupled.
+* Implements keyword is used with a class to extend it to an interface
+```
+    interface Computer {
+        void code();
+    }
+    // abstract class Computer {
+    // abstract public void code();
+    // }
+    
+    // class Laptop extends Computer {  //class inheritance
+    class Laptop implements Computer {  //interface
+        public void code() {
+            System.out.println("code,complile,run");
+        }
+    }
+```
+
+**Need  of an Interface:-**
+* It is used to implement abstraction.
+* We can also achieve multiple inheritance in Java, by using the interface.
+* Any class can extend only 1 class but can any class implement an infinite number of interface.
+* It is also used to achieve loose coupling.
