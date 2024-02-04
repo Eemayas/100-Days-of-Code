@@ -814,3 +814,53 @@ e.g., A.area;    (here, area is a variable initialized in an interface)
 
 
 * Interface does not have its own memory in the heap.
+
+
+#Day 26 - More on Interface, Enums
+* We can have a class implementing multiple interfaces.
+```
+    class B implemets A,X{
+        }
+    (here, A and X are two different interfaces)
+```
+* Implementation of all the methods that are present in those interfaces should be ven in a class.
+* Inheritance is also valid in between interfaces.
+* Inheritance can be achieved in between interfaces by using the extend keyword.
+* Whenever you create a reference of an interface and create an object of a class, then you can only call those methods by that reference that are present in that interface of which the refernce is created.
+* Methods of another interface can be called by using another reference variable for that interface with the object of a class.
+
+**Keyword used to extend**
+```
+class -class --> extends
+class-  interface --> implements
+interface -interface --> extends
+```
+
+**Enums**
+* Enum is a short term used for Enumeration.
+* Enumerations serve the purpose of representing a group of named constants in a programming language.
+* Java Enums can be thought of as classes that have a fixed set of constants 
+* Enum is named constants that we create for specific constants or error codes.
+* Enum is created in place of an object for constants.
+* Enum is pre-defined that contains all name constants.
+* Enums are used to create our data type like classes.
+* In enum, instead of returning a string format or a specific object, we can simply return a status or a value present inside an enum.
+```
+    enum Status { // Java treats Status as class
+        Running, Failed, Pending, Success; // treats as object of the class
+    }
+```
+
+* enum is also treated as a class in Java. Objects can also be created for enum like:
+ 	Status s= Status.Running;
+* Every enum constant represents an object of type enum.
+* enum type can be passed as an argument to switch statement
+
+* In enum, all the name constants are defined by using numbers.
+* ``ordinal()`` method is used to get the index of the name constant present in the enum.
+* ``values()`` method is used to get all the statuses or name constants of enums.
+* 
+```
+    Status [][] s= Status.values();
+    *values() method will give an array.
+```
