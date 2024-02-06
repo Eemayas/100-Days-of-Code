@@ -911,3 +911,50 @@ interface -interface --> extends
 * If any parameterized constructor is present inside an enum, then the default constructor will not be considered.
 * We create private variables and private constructors in an enum because we use them or create an object for constructors in the same class only.
 * The constructor in an enum will be called the number of times as much the number of objects created.
+
+
+# Day 28 - Annotation
+**What is Annotations?**
+* Annotation is type of comment which is used to provide meta data to the compiler and JVM about the program.
+
+**Basic difference between comment and annotations**
+* Annotation is used to provide meta data to the compiler and JVM about the program but comment is used to provide information to the programmer.
+
+**What does annotations provide to program and what does for program?**
+* Annotations are used to provide supplemental information about a program. 
+* Annotations start with ‘@’.
+* Annotations do not change the action of a compiled program.
+* Annotations help to associate metadata (information) to the program elements i.e. instance variables, constructors, methods, classes, etc.
+* Annotations are not pure comments as they can change the way a program is treated by the compiler. See below code for example.
+
+**How annotation prevent us from logical error?**
+```
+class A{
+        public void show(){
+            System.out.println("In A");
+        }
+
+        public void display(){
+            System.out.println("In A");
+        }
+  }
+
+  class B extends A{
+        @Override
+        public void show(){
+            System.out.println("In B");
+        }
+      /*   @Override
+        public void displayData(){
+            System.out.println("In B");
+        }
+  */
+
+    //here you get error because you are not overriding the method of parent class but you are using @Override annotation 
+   // if you are thinking I can override display() method but you should defined new method but whenever you mention @override compiler throw error that you are not override the parent class method 
+    //it helps to avoid the logical error in the program because logical error is more difficult to find when you use annotation it helps to find the logical error
+    //because solving problem at compile time error  is easy than solving problem at runtime 
+
+ 
+  }
+```
