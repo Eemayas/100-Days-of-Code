@@ -1011,3 +1011,39 @@ interface A{
     //void run(); //this will give error as it is a functional interface you cannot write two abstract method in this
 }
 ```
+
+# Day 30 - Lambda
+* In Java, a ``lambda`` expression is a concise way to implement a functional interface.
+* It will only work with **functional interface only**.
+* A **functional interface** is an interface that has only one abstract method, and it can be implemented using a lambda expression.
+* Using lambda expression we do not need of new class and inner class to implement.
+
+**Properties of the lambda expression**
+* **Concise syntax:** Lambda expressions provide a concise and expressive syntax for defining functional interfaces. They allow you to define the behaviour of a functional interface in a single line of code.
+
+
+* **Functional programming:** Lambda expressions are a key component of functional programming in Java. They allow you to write code that is more declarative and expressive, and less verbose than traditional imperative code.
+
+
+* **No need for anonymous inner classes:** Lambda expressions provide an alternative to anonymous inner classes, which are often 
+used to implement functional interfaces in Java. Lambda expressions are more concise and easier to read than anonymous inner classes.
+
+**Codes:**
+* **Code without lymbda**
+        A obj = new A() {
+            public void show() {
+                System.out.println("in Show");
+            }
+        };
+
+* **Code with lymda and their variation**
+        A obj = (int i) -> {
+            System.out.println("in Show" + i);
+        };
+
+* **Removing the Curly bracket and the data type of formal parameter**
+        	A obj = (i) -> System.out.println("in Show" + i);
+* **If you have only one paramter you can simply write like this**
+        A obj = i -> System.out.println("in Show" + i);
+* **Code with lymda with return value**
+        	B obj1 = (int i, int j) -> i + j;
