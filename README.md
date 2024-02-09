@@ -1047,3 +1047,94 @@ used to implement functional interfaces in Java. Lambda expressions are more con
         A obj = i -> System.out.println("in Show" + i);
 * **Code with lymda with return value**
         	B obj1 = (int i, int j) -> i + j;
+
+# Day 31 - Interface, Exceptions
+**Types  of interface**
+* Normal interface
+* Functional interface /SAM 
+* Marker  interface
+
+**Normal interface** 
+* Normal interface contains two or more abstract method.
+* It can have any number of static and default methods and also even public methods of Object classes.
+* You can declare variable which are public static final by deault
+```
+// Normal interface for vehicles
+interface Vehicle {
+    void start(); // Method to start the vehicle
+
+    void stop(); // Method to stop the vehicle
+}
+```
+
+
+**Functional Interface(Single Abstract Method (SAM) Interface):**
+* Functional Interface is an interface that has only pure one abstract method.
+* It can have any number of static and default methods and also even public methods of Object classes
+* e.g Runnable interface : It contains only  run()  method 
+```
+// Functional interface for performing calculations
+@FunctionalInterface
+interface Calculator {
+    int calculate(int a, int b); // Method to perform calculation
+}
+```
+
+
+**Marker Interface:**
+* An interface that does not contain any methods, fields, Abstract Methods, and any Constants is Called a Marker interface.
+* Also, if an interface is empty, then it is known as Marker Interface.
+* The Serializable and the Cloneable interfaces are examples of Marker interfaces.
+```
+// Marker interface indicating printable objects
+interface Printable {
+}
+```
+
+**Exceptions**
+**Types:**
+* Compile time error
+* Logical error
+* Run time error 
+
+**Compile-time errors:**
+* Compile-time errors are errors that occur during the compilation of the Java code. 
+* These errors are caused by syntax errors, missing semicolons, or incorrect variable names, 
+* Among other things. If there are compile-time errors in your Java program, it cannot be compiled into bytecode, and it cannot be executed.
+
+**Logical errors:**
+* Logical errors are errors that occur when the program runs correctly, but it does not produce the expected output. 
+* These errors occur because of a mistake in the program's logic. For example, if a program is supposed to add two numbers 
+* But instead multiplies them, it will produce the wrong output. Logical errors are more difficult to detect than compile-time errors because the program runs without any error messages.
+
+**Exceptions(Runtime error)**
+* Exceptions are errors that occur during the execution of the Java program. 
+* Exceptions occur when something unexpected happens, such as trying to read from a file that does not exist or dividing by zero. 
+* When an exception occurs, the program will terminate unless the exception is handled by an exception handler.
+
+**Checked Exception:**
+* Checked exceptions are exceptions that the Java compiler requires you to handle or declare. 
+* These exceptions are checked at compile time, and you must either handle the exception with a try-catch block or declare it with a throws clause. 
+* If you do not handle or declare a checked exception, the code will not compile. Checked exceptions are typically related to input/output operations, such as file handling or network communication.
+
+**Unchecked Exception:**
+* Unchecked exceptions are exceptions that are not checked at compile time. These exceptions are typically caused by programming errors, 
+* Such as null pointer exceptions, array index out of bounds exceptions, and class cast exceptions. Unchecked exceptions are not required to be handled or declared, but they can still occur during runtime.
+
+**Important:**
+* Both checked and unchecked exceptions can occur during runtime, but checked exceptions are checked at compile time and require handling or declaring, while unchecked exceptions are not checked at compile time and do not require handling or declaring.
+
+* Can also handle different types of exceptions with multiple catch blocks.
+```
+    int i = 4;
+    int arr[] = { 3, 4, 5 };
+    try {
+        int j = 18 / i;
+        System.out.println(arr[9]);
+        System.out.println(j);
+    } catch (ArithmeticException e) {
+        System.err.println("Cannot Divide by zero");
+    } catch (Exception e) {
+        System.err.println("Error:\t" + e);
+    }
+```
