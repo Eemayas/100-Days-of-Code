@@ -1138,3 +1138,43 @@ interface Printable {
         System.err.println("Error:\t" + e);
     }
 ```
+# Day 32 -``throw``, Custom Exception, ``throws``
+**``throw``**
+* ``throw`` keyword in Java is used to explicitly throw an exception. 
+* When an exception is thrown using the ``throw`` keyword, the execution of the current method is stopped.
+
+**Custom Exception**
+* Custom exception class extends the Exception class.
+* Need a constructor that takes a String message, which is passed to the parent constructor using the super keyword.
+```
+    class EemayasException extends Exception {
+        public EemayasException(String string) {
+            super(string);
+        }
+    }
+```
+**Custom Exception can be create by**
+* By extending the Throwable class in Java 
+* Not recommended create custom exception using Throwable, the Throwable class is typically used to create other types of exceptions, such as errors and checked exceptions, rather than custom exceptions.
+* By extending the Exception class in Java
+* By extending  the Exception class or one of its subclasses, such as RuntimeException.
+
+**``thows``**
+* ``throws`` keyword is used in method signatures to indicate that the method may throw certain types of exceptions.but does not handle them directly
+* The caller of the method is responsible for catching and handling the exception.
+* Suppose you have three methods c , b and a and both have same Arithmetic Exception and b and a method call from c method.
+in this case you can duck the exceptions and handle in the c methods.
+```
+    void c(){
+    try{
+        a();
+        b();
+    }
+    catch(ArithmeticException e){
+        }
+    }
+    void a() throws ArithmeticException{}
+    void b() throws ArithmeticException{}
+```
+* Ducking exception most recommended for checked exception than unchecked exception
+* ``throws`` keyword in Java is typically used to declare that a method may throw one or more checked exceptions. Checked exceptions are exceptions that must be either caught or declared in the method signature using the ``throws`` keyword. Examples of checked exceptions in Java include ``IOException``, ``SQLException``, and ``ClassNotFoundException``.
