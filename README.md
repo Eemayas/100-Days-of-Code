@@ -1178,3 +1178,187 @@ in this case you can duck the exceptions and handle in the c methods.
 ```
 * Ducking exception most recommended for checked exception than unchecked exception
 * ``throws`` keyword in Java is typically used to declare that a method may throw one or more checked exceptions. Checked exceptions are exceptions that must be either caught or declared in the method signature using the ``throws`` keyword. Examples of checked exceptions in Java include ``IOException``, ``SQLException``, and ``ClassNotFoundException``.
+
+# Day 33 - System.in.read(), InputStreamReader, Scanner, Try can be used with finally, Try with resources, Try with with multiple resource, Thread
+**How to take input in java?**
+* Using System.in.read()
+* Using InputStreamReader class
+* Using Scanner
+
+**Using System.in.read()**
+* We can take single character input only, if we provide multiple character,it considersr the firstcharacter of enter sequence.
+* if we want to show result of multiple character we can use loop (not in video lecture forcuriosityy)
+* Return ascii value of the input
+
+```
+ public static void main(String[] args) {
+        System.out.println("Enter the Number");
+        try {
+            int num = System.in.read();
+            System.out.println(num);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+```
+```
+   input: a	output: 97
+   input: A	output: 65
+   input: 3	output: 51
+   input: 345	output: 51 //considere 3 digit from number
+   input: 3456 	output: 51 //consider 3 digit from number
+```
+
+**To get actual number** 
+* Convert ascii value to char
+``System.out.println((char)i); // print the char value``
+
+* Subtract 48 from the ascii value
+``System.out.println(i-48); // print the actual number //but it is only for single digit number ``
+
+
+**Using InputStreamReader class:**
+* In Java, the InputStreamReader class is used to read data from an input stream and convert it into characters. 
+* It is often used with the BufferedReader class, which provides a buffered way to read characters from an input stream.
+* if open the resource then close is important
+``` 
+    // multiple digit input
+    InputStreamReader in = new InputStreamReader(System.in);
+    BufferedReader bf = new BufferedReader(in);
+
+    try {
+        int numbf = Integer.parseInt(bf.readLine());
+        System.out.println(numbf);
+        bf.close(); // closing the resources
+    } catch (NumberFormatException e) {
+
+        e.printStackTrace();
+    } catch (IOException e) {
+
+        e.printStackTrace();
+    }
+```
+
+**Using Scanner**
+```
+    // Scanner
+    Scanner scn = new Scanner(System.in);
+    System.out.print("Enter a number: ");
+    int num1 = scn.nextInt();
+    System.out.print("Enter another number: ");
+    double num2 = scn.nextDouble();
+    System.out.printf("%d %f", num1, num2); //will print 56 23.000000
+```
+
+**Try can be used with finally**
+* ``try`` statement can be used along with the finally clause to ensure that a resource is properly closed or released, regardless of whether an exception is thrown or not.
+```
+    InputStreamReader in = new InputStreamReader(System.in);
+    BufferedReader bf = new BufferedReader(in);
+
+    try {
+        int numbf = Integer.parseInt(bf.readLine());
+        System.out.println(numbf);
+    } finally {
+        if (bf != null)
+            bf.close(); // finally used to close the resources regardless Excpetion occur or not
+        }
+```
+
+**Try with resources**
+* Advantage is this that once the try block is over, resources bf will automatically closed.
+```
+try (InputStreamReader in = new InputStreamReader(System.in);
+             BufferedReader bf = new BufferedReader(in);) {
+            int numbf = Integer.parseInt(bf.readLine());
+            System.out.println(numbf);
+        }
+```
+
+**Try with with multiple resource**
+* Use the try-with-resources statement to close multiple resources automatically. 
+```
+    try (Resource1 res1 = new Resource1();
+         Resource2 res2 = new Resource2()) {
+        // code that uses the resources
+    } catch (Exception e) {
+        // exception handling code
+    }
+```
+
+* Resource1 and Resource2 are classes that implement the AutoCloseable interface,which allows them to be used in the try-with-resources statement. 
+* The code within the try block uses these resources, and they are automatically closed when the block is exited, either normally or due to an exception. If an exception is thrown, the * catch block can handle it as necessary.
+* Resource1 and Resource2 are declared and instantiated within the try-with-resources statement. If the resources are already instantiated before the try block, we can simply pass them as arguments to the statement.
+* The resources are closed automatically when the try block is exited, and there's no need to explicitly call their close() methods.
+* In multiple statement inside try, order of closing resources:
+* Resources declared within a try-with-resources statement are closed in the reverse order of their declaration, from right to left. 
+* Resource1 is declared first, followed by Resource2, and then Resource3. 
+* When the try block is exited, the resources will be closed in the following order:
+Resource3
+Resource2
+Resource1
+
+* Order is reversed from the order of declaration, with the resource declared last (Resource3) being closed first, and the resource declared first (Resource1) being closed last.
+
+**Thread**
+* A thread can be created by extending the thread class. The thread class can be extended through the ``Thread`` keyword.
+* As a programmer,* we can not control a thread, we can only optimise it.
+* By using the ``Thread`` keyword with class, it will not create a new thread.
+```
+class A extends Thread {
+    public void run() {
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Hi");
+        }
+    }
+}
+```
+
+* Have to use the start() method in the main to start the execution of a new thread.
+```
+A obj1 = new A();
+obj1.start();
+```
+* ``start()`` is a method that is present inside the thread class. ``start()`` method only calls the run method.
+* ``start()`` invokes the ``run()`` method on the Thread object.
+* run method should be present inside every thread to start a new thread.
+* ``run()`` method is used to do an action for a thread.
+
+**``getPriority()``**
+* We cannot control the schedular, we can only give suggestions to it to give priority.
+* getPriority() is a method that gives the current priority of a thread.
+* Range of priority ⇒ 1 to 10.
+    * 1⇒least 
+    * 10⇒maximum
+    * 5⇒default priority or normal priority.
+* Code
+```
+System.err.println(obj1.getPriority());
+```
+
+**``setPriority()``**
+* Can also change the priority by using the ``setPriority()``.
+* Can set priority using value 1-10 or some constant like ``Thread.MIN_PRIORITY`` or ``Thread.MAX_PRIORITY``
+* Code
+```
+obj1.setPriority(10);
+or
+obj1.setPriority(Thread.MIN_PRIORITY);
+```
+
+**``Thread.sleep(__);``**
+* Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers
+* Thread will wait by using the ``sleep()`` method.
+* In the ``sleep()`` method, we have the pass value for how much time we want a thread to wait. The time will be in milliseconds.
+* ``sleep()`` method will throw an interrupted exception. So, we can handle an exception by using the try-catch block.
+* When we use ``sleep()``, then the thread goes into the waiting state.
+* Code:
+```
+    try {
+        Thread.sleep(10);
+    } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+```
