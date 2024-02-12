@@ -1362,3 +1362,127 @@ obj1.setPriority(Thread.MIN_PRIORITY);
         e.printStackTrace();
     }
 ```
+# Day 34 -Method of creating the thread, Runnable with lambda, Thread Safe, join method and synchronized keyword, Thread State,Collection, Set, ArrayList
+**Method of creating the thread:**
+* Extend a thread class
+* Implement a Runnable interface.The runnable interface does not have thread methods, in that case, we need to create a separate thread object to use features.
+
+* In the Runnabe method, the start() method is not present so we can not use it by implementing Runnable simply.
+* Thread has multiple constructors and one of the constructors takes a runnable object.
+* We cannot create an object of a thread by using a class name.
+* Objects for a thread will be created by using a Runnable keyword. So, we create a reference of an interface and an object of a class
+* e.g., Runnable obj= new A();
+* We have to pass a reference to an object in the thread class.
+* After creating a reference of the Runnable class, we can use the start() method with the thread.
+```
+    Runnable obj1 = new A();
+    Runnable obj2 = new B();
+
+    Thread t1 = new Thread(obj1);
+    Thread t2 = new Thread(obj2);
+    t1.start();
+    t2.start();
+```
+
+**Runnable with lambda**
+* Runnable is function interface so we can use the lambda.
+```
+    Runnable obj1 = () -> {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Hi");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    };
+```
+
+**Thread Safe:**
+* Thread safe means that only one thread will work at one point.
+* When a thread is already working on an object and preventing another thread from working on the same object, this process is called Thread-Safety.
+* If we have two threads and each thread is calling increment thousand times, then increment will be called two thousand times.
+* For the above case, every time you run the code you will get a different output for this.
+* This happens because the main method prints the value of the count at any moment of time, it does not wait for threads to execute completely and come back to the main method.
+* If the main method waits for threads to execute and to come back after completion, then it gives nearby correct output.
+
+
+**join method and synchronized keyword:**
+* ``join()`` is a method that allows the main method to wait for the other threads to come back and join.
+* join through an exception so we have to handle it by using throws Interruption.
+* If both threads go to the method at the same time then it might be possible that they will be lost some of the values in between.
+* The above problem will be resolved by using the synchronized keyword.
+* By using the synchronized, java ensures that the method will be called by only one method at a time to handle instability in code.
+* So, if a thread is working with the synchronized method, then the other thread has to wait to work with that method until the first thread gets completed.
+* Synchronization in java is the capability to control the access of multiple threads to any shared resource. 
+```
+class Counter {
+    int count; // This is an integer field named 'count'
+
+    public synchronized void increment() { // A synchronized method to ensure thread safety
+        count++; // Increase the count by 1
+    }
+}
+```
+
+**Thread State**
+* Every time you create a new thread that goes into a new state.
+* When you start a thread, it goes into the Runnable state.When the thread is executing and then it is waiting for the schedular, it is in a runnable state.
+* When the thread is actually running on a CPU, it is in a Running state.The thread executes with the help of the ``run()`` method in a running state.A thread goes in the running state only when it gets informed by the schedular to get executed.
+* The thread can be held with the help of the ``sleep()`` or ``wait()`` method, then will go into the waiting state.
+* With the use of ``notify()`` method, the thread goes to the Runnable state from the waiting state.
+* You can stop the execution of a thread by using a stop() method, and then it will go into the Dead State.
+* When the work of a thread gets over, then it will go into the dead state automatically.
+
+**Collection**
+* Collection consists of:.
+    * Collection API  -- concept
+    * Collection  -- Interface
+    * Collections -- Class
+
+* The collection interface belongs to java.util.Collection package. All classes and methods of collection interface belong to this java.util package.
+* API means a library or some features that we can use directly, we do not need to define an implementation for it.
+* Collections List, Queue, Map and Set simply extend the Collection interface and this collection interface must have its own class implementation.
+
+*  We can also convert a collection into an array.
+*  ``ArrayList`` is used like:
+```
+    Collection nums=new ArrayList(); 
+    nums.add(6);
+```
+*  We can add values in a collection by using the add() method.
+*  We do not have indexing for the collection API.
+*  In the array, we need to specify its type of it. While Collection API works with objects.
+*  All the data types classes like integer and float extend an object class and thus collection API directly use an object.
+*  To define the data types in collection API, we use Generics.
+*  You can define the type of an object to which data type class it belongs in angular brackets like:
+```
+    Collection<Integer> nums = new ArrayList<Integer>();
+```
+* Here, we use Integer as it is a class, while int is a primitive data type.
+* If we do not specify the datatype of a collection object, then it will give a run-time error.
+* ArrayList is a class that implements a list. The list does not have a method called get because it list works with an index in the values.
+* It uses a dynamic array to store the duplicate element of different data types. 
+* The ArrayList class maintains the insertion order and is non-synchronized. 
+* The elements stored in the ArrayList class can be randomly accessed. 
+* The size of an ArrayList is increased automatically if the collection grows or shrinks if the objects are removed from the collection. 
+* If you want to use and fetch values from an ``ArrayList``, then you can use ``Collection``.
+```
+    Collection<Integer> nums = new ArrayList<Integer>();
+```
+* If you want to work with an index value, you should use List as it supports index values.
+```
+    List<Integer> nums1 = new ArrayList<Integer>();
+```
+
+**Set**
+* Set also uses the add() method to insert the values in a set.
+* Set does not print the repeated values. It prints the same value only one time.
+* Set does not maintain the sequence, it gives values in any random order. The set does not sort the values
+* Set also does not support an index for values.
+```
+    Set<Integer> set = new HashSet<Integer>();//give un sorted list
+    Set<Integer> set = new TreeSet<Integer>();// sorted list
+```
