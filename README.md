@@ -1486,3 +1486,95 @@ class Counter {
     Set<Integer> set = new HashSet<Integer>();//give un sorted list
     Set<Integer> set = new TreeSet<Integer>();// sorted list
 ```
+
+# Day 35 - Map, Collections, Comparable, forEach, Stream, ParallelStream
+**Map**
+* Map is a collection of key-value pairs. in this, for every value of an element, a key is associated with it.
+* Map itself is in an interface that supports key-value pairs. A class that implements it is called HashMap.
+* Add elements in a map using the ``put()`` method that accepts both the key and value of it.
+* Get the value of an element by specifying its key of it in the ``get()`` method.
+* Keys are unique but values can be repeated. The value of a key can also be updated.
+* In a map, keys are in a set while values are in a list.
+* We can get all the keys by using the method ``keySet()``.
+* We can get the value of a key by using the method ``get()`` and pass a parameter as a key in the method.
+* ``remove()`` method is used to delete a particular element or an entity from a map.
+```
+    Map<String, Integer> students = new HashMap();
+```
+
+**Collections**
+* We can sort a list or an ArrayList by using the method sort of collection class
+```
+    Collections.sort();
+```
+* If we want to apply our own logic in sorting, then we have to use a comparator with sorting in collections.
+* Comparator is also an interface.
+* We have a method called compare() in the comparator interface.
+* We can use an interface by implementing a class or through an anonymous class.
+* Compare method works on an algorithm where it compares two values and then swaps them.
+* So, a comparator is an interface through which you can specify your own concept of sorting.
+```
+    Comparator<Integer> com = new Comparator<Integer>() {
+        public int compare(Integer i, Integer j) {
+            if (i % 10 > j % 10) {
+                return 1;
+            } else {
+                return -1; 
+            }
+        }
+    };
+```
+
+**Comparable**
+* Integer class implements a Comparable interface. So by default, sort works for Integer.
+* If you want to do natural sorting on any other non-defined class, you can implement something called the Comparable.
+* Comparable is present in the lang package.
+* Comparable has a method known as compareTo(). 
+* You have to define the method comapreTo() in a class, that is implementing Comparable.
+```
+    class Student implements Comparable<Student> {  
+        @Override
+        public int compareTo(Student that) { 
+            if (this.age > that.age) {
+                  return 1; 
+            } else {
+                return -1; 
+            }
+        }
+    }
+```
+* Here, that is a variable
+* We can also override the logic by using Comparator even if we have implements the Comparable interface.
+* Lambda expression can also be used with Comparator as it is a functional interface.
+```
+    Comparator<Student> studscomlamda = (Student i, Student j) -> i.age > j.age ? 1 : -1;
+```
+
+**Difference between Comparable & Comparator:**
+Comparable provides a single sorting sequence while the Comparator provides multiple sorting sequences.
+In Comparable, actual gets modified while in Comparator, the original class does not get affected.
+Comparable gives the compareTo() method for sorting while Comparator gives the compare() method to sort elements.
+
+**forEach**
+* ``forEach`` method gives one value at a time and we can save that value in a variable say n and print it.
+* ``forEach`` traverses each element of the Iterable until all the elements have been processed.
+* ``forEach`` method takes an object of the consumer.
+* ``forEach`` method is part of a list interface, that gives one value at a time and then you can perform operations on it.
+```
+    nums.forEach(n -> System.out.println(n));
+```
+
+**Stream**
+* Stream is an interface, it contains a stream() method.
+* Stream method return an object of type stream.
+* Any operation can be performed inside the stream method.
+* Any changes done inside the stream can be reflected on the actual list.
+* Once we work with a stream, we can't reuse it. We can work with a stream only once.
+* If you use more than once, it will create run time error
+```
+    Stream<Integer> s1 = nums.stream();
+```
+
+**ParallelStream**
+* Creates multiple threads to work faster.
+* parallelStream should not be used with a sorted method as sorting requires all the elements together, so there multiple threads will create an ambiguity.
