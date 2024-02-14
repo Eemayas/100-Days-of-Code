@@ -1578,3 +1578,52 @@ Comparable gives the compareTo() method for sorting while Comparator gives the c
 **ParallelStream**
 * Creates multiple threads to work faster.
 * parallelStream should not be used with a sorted method as sorting requires all the elements together, so there multiple threads will create an ambiguity.
+
+# Day 36 -Var, Sealed Class
+**Var**
+* Var will convert into specific type behind the scene.
+* We cannot use the var without initialization
+```
+    var a = 9;// valid
+    var d; // runtime error / (cannot use 'var' on variable without initializer)
+```
+* Var keyword cannot be used as classname
+```
+    class var { //'var' is not a valid type name
+    }
+```
+* Var can be used as object name;
+```
+    String var = "Prashant";
+```
+* Both are same
+```
+    int num[] = new int[10];
+    var nums = new int[10];
+```
+
+**Sealed Class**
+* You can mention which are the classes/subclasses which can inherit from this particular class/interface
+```
+    sealed class A permits B, C {
+    }
+    non-sealed class B extends A {
+    }
+    non-sealed class C extends A {
+    }
+    class D {
+    }
+```
+* We can make sub class final , non-sealed, sealed 
+```
+    non-sealed class C extends A {
+    }
+    Or
+    sealed class C extends A permits E {
+    }
+    Or
+    final class C extends A {
+    }
+```
+* Permit should be the last.
+* For sub interface we have only two option: non-sealed, sealed
