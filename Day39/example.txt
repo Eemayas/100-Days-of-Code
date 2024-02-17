@@ -1,0 +1,2 @@
+Hello, this is an example text.
+We're writing to a file using Java.
