@@ -1720,3 +1720,56 @@ Comparable gives the compareTo() method for sorting while Comparator gives the c
                 System.out.println();
             }
 ```
+
+# Day 40 - Kotlin
+* ``fun`` is used to declare a function
+* The ``main()`` function is where your program starts fro
+* The body of a function is written within curly braces ``{}``
+* ``println()`` and ``print()`` functions print their arguments to standard output
+
+**Types of Variable**
+* read-only variables with ``val``
+* mutable variables with `var`
+
+**String**
+* Elements of a string are characters that you can access via the indexing operation: ``s[i]``. 
+```
+    for (c in str) {
+        println(c)
+    }
+```
+**Kotlin has two types of string literals:**
+* Escaped strings
+```
+    val s = "Hello, world!\n"
+```
+* Multiline strings
+```
+    val text = """
+    for (c in "foo")
+        print(c)
+    """
+```
+
+* To remove leading whitespace from multiline strings, use the trimMargin() function
+```
+    val text1 = """
+        |Tell me and I forget.
+        |Teach me and I remember.
+        |Involve me and I learn.
+        |(Benjamin Franklin)
+        """.trimMargin()
+        //will print
+    // Tell me and I forget.
+    // Teach me and I remember.
+    // Involve me and I learn.
+    // (Benjamin Franklin)
+```
+A template expression starts with a dollar sign ``($)`` and consists of either a name:``println("i = $i") `` or an expression in curly braces:``"$s.length is ${s.length}"``
+
+**``String.format()``**
+```
+String.format("%07d", 31416) //will print 0031416
+String.format("%+.4f", 3.141592)    //will print +3.1416
+String.format("%S %S", "hello", "world")    //will print HELLO WORLD
+```
