@@ -1773,3 +1773,136 @@ String.format("%07d", 31416) //will print 0031416
 String.format("%+.4f", 3.141592)    //will print +3.1416
 String.format("%S %S", "hello", "world")    //will print HELLO WORLD
 ```
+
+# Day 41 - Kotlin Variable, Collection, Class, Function
+Kotlin has the following basic types:
+Integers--``Byte``, ``Short``, ``Int``, ``Long``
+Unsigned integers--``UByte``, ``UShort``, ``UInt``, ``ULong``
+Floating-point numbers--``Float``, ``Double``
+Booleans--``Boolean``
+Characters--``Char``
+Strings--``String``
+
+**Collection**
+* List
+* Set
+* Map
+
+**List**
+* Read-only()
+```
+val readOnlyShapes = listOf("triangle", "square", "circle")
+```
+* Mutable list
+```
+val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
+```
+    
+* To get the first or last item in a list, use ``.first()`` and ``.last()`` functions respectively
+* To get the number of items in a list, use the ``.count()`` function
+* To check that an item is in a list, use the ``in`` operator
+* To add or remove items from a mutable list, use ``.add()`` and ``.remove()`` functions respectively
+
+**Set**
+* read-only set
+* mutable set
+```
+// Read-only set
+val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+// Mutable set with explicit type declaration
+val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
+```
+
+* To get the number of items in a set, use the ``.count()`` function
+* To check that an item is in a set, use the ``in`` operator
+* To add or remove items from a mutable set, use ``.add()`` and ``.remove() ``functions respectively
+
+**Map**
+* read-only map
+* mutable map
+```
+// Read-only map
+val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+
+// Mutable map with explicit type declaration
+val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+```
+* To access a value in a map, use the indexed access operator ``[]`` with its key
+* To get the number of items in a map, use the ``.count()`` function
+* To add or remove items from a mutable map, use ``.put()`` and ``.remove()`` functions respectively
+* To check if a specific key is already included in a map, use the ``.containsKey()`` function
+* To check that a key or value is in a map, use the in operator:
+```
+val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+println("orange" in readOnlyJuiceMenu.keys)
+// true
+println(200 in readOnlyJuiceMenu.values)
+// false
+```
+
+**Conditional expression**
+*  if
+```dotnetcli
+if (a > b) a else b
+```
+* when
+```
+val obj = "Hello"
+
+when (obj) {
+    // Checks whether obj equals to "1"
+    "1" -> println("One")
+    // Checks whether obj equals to "Hello"
+    "Hello" -> println("Greeting")
+    // Default statement
+    else -> println("Unknown")     
+}
+            or
+val temp = 18
+
+val description = when {
+    // If temp < 0 is true, sets description to "very cold"
+    temp < 0 -> "very cold"
+    // If temp < 10 is true, sets description to "a bit cold"
+    temp < 10 -> "a bit cold"
+    // If temp < 20 is true, sets description to "warm"
+    temp < 20 -> "warm"
+    // Sets description to "hot" if no previous condition is satisfied
+    else -> "hot"             
+}
+println(description)
+// warm
+```
+
+**Function**
+```
+fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+```
+can be written as
+```
+fun sum(x: Int, y: Int) = x + y
+```
+
+**Class**
+* You can declare properties for a class:
+    * Within parentheses () after the class name.
+```
+    class Contact(val id: Int, var email: String)
+```
+    * Within the class body defined by curly braces {}.
+```
+    class Contact(val id: Int, var email: String) {
+    val category: String = ""
+}
+```
+
+**Create instance**
+``` 
+class Contact(val id: Int, var email: String)
+
+fun main() {
+    val contact = Contact(1, "mary@gmail.com")
+}
+```
