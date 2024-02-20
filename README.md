@@ -1906,3 +1906,6 @@ fun main() {
     val contact = Contact(1, "mary@gmail.com")
 }
 ```
+
+# Day 42 - Row and Column in JetPack Compose
+
