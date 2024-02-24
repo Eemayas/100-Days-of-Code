@@ -6,18 +6,24 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -29,38 +35,82 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composecourse.ui.theme.ComposeCourseTheme
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+
 class MainActivity : ComponentActivity() {
+
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Column(
-                Modifier.fillMaxSize()
-            ) {
-                val color = remember {
-                    mutableStateOf(Color.Yellow)
-                }
-                ColorBox(
-                    Modifier
-                        .weight(1f)
-                        .fillMaxSize()
-
-                ){
-                    color.value=it
-                }
-                Box(
-                    Modifier
-                        .background(color.value)
-                        .weight(1f)
-                        .fillMaxSize()
-                )
+            val snackbarHostState = remember { SnackbarHostState() }
+            var textFieldState by remember {
+                mutableStateOf("")
             }
+            val scope = rememberCoroutineScope()
 
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 30.dp),
+                ) {
+                    TextField(
+                        value = textFieldState,
+                        label = {
+                            Text("Enter your name")
+                        },
+                        onValueChange = {
+                            textFieldState = it
+                        },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    Button(onClick = {
+                        scope.launch {
+                            snackbarHostState.showSnackbar("Hello $textFieldState")
+                        }
+                    }) {
+                        Text("Please Greet Me")
+                    }
+                }
+
+            }
+        }
+
+
+        // Day 45
+//        setContent {
+//            Column(
+//                Modifier.fillMaxSize()
+//            ) {
+//                val color = remember {
+//                    mutableStateOf(Color.Yellow)
+//                }
+//                ColorBox(
+//                    Modifier
+//                        .weight(1f)
+//                        .fillMaxSize()
+//
+//                ){
+//                    color.value=it
+//                }
+//                Box(
+//                    Modifier
+//                        .background(color.value)
+//                        .weight(1f)
+//                        .fillMaxSize()
+//                )
+//            }
+//    }
 
 //Day 44
-
 //        val fontFamily = FontFamily(
 //            Font(R.font.opensans_bold),
 //            Font(R.font.opensans_bolditalic),
@@ -102,6 +152,7 @@ class MainActivity : ComponentActivity() {
 //                    textAlign = TextAlign.Center
 //                )
 //            }
+//    }
 
 //Day 43
 //            val painter = painterResource(id = R.drawable.photo);
@@ -129,29 +180,30 @@ class MainActivity : ComponentActivity() {
 //                    Text(text = "Hello Manandhar")
 //                }  }
 
-        }
+//        }
     }
 
-}
+//}
 
 
 @Composable
 fun ColorBox(
     modifier: Modifier = Modifier,
-    updateColor:(Color )->Unit
+    updateColor: (Color) -> Unit
 ) {
-
 
 
     Box(modifier = modifier
         .background(Color.Red)
         .clickable {
-            updateColor(  Color(
-                Random.nextFloat(),
-                Random.nextFloat(),
-                Random.nextFloat(),
-                1f
-            ))
+            updateColor(
+                Color(
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    1f
+                )
+            )
 
         }
     ) {
