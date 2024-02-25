@@ -2,27 +2,18 @@ package com.example.composecourse
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,7 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composecourse.ui.theme.ComposeCourseTheme
-import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 
@@ -45,47 +35,100 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
-            val snackbarHostState = remember { SnackbarHostState() }
-            var textFieldState by remember {
-                mutableStateOf("")
-            }
-            val scope = rememberCoroutineScope()
 
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 30.dp),
-                ) {
-                    TextField(
-                        value = textFieldState,
-                        label = {
-                            Text("Enter your name")
-                        },
-                        onValueChange = {
-                            textFieldState = it
-                        },
-                        singleLine = true,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                    Spacer(Modifier.height(16.dp))
-                    Button(onClick = {
-                        scope.launch {
-                            snackbarHostState.showSnackbar("Hello $textFieldState")
-                        }
-                    }) {
-                        Text("Please Greet Me")
-                    }
-                }
+//// ListView using LazyColumn
+//        setContent{
+//            LazyColumn{
+//                itemsIndexed(   //equivalent to for each loop
+//                    listOf("This","is","JetPack","Compose")
+//                )
+//                {
+//                    index,string->  Text(
+//                    text = string,
+//                    fontSize = 24.sp,
+//                    textAlign= TextAlign.Center,
+//                    fontWeight = FontWeight.Bold,
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(vertical = 24.dp)
+//                )
+//                }
+////                items(5000){      //equivalent to for loop
+////                    Text(
+////                        text = "Item $it",
+////                        fontSize = 24.sp,
+////                        textAlign= TextAlign.Center,
+////                        fontWeight = FontWeight.Bold,
+////                        modifier = Modifier
+////                            .fillMaxWidth()
+////                            .padding(vertical = 24.dp)
+////                    )
+////                }
+//            }
+//        }
 
-            }
-        }
+
+        // Make listView by columns
+//        setContent {
+//            val scrollState= rememberScrollState()
+//            Column(Modifier.verticalScroll(scrollState)) {
+//                for (i in 1..50) {
+//                    Text(
+//                        text = "Item $i",
+//                        fontSize = 24.sp,
+//                        textAlign= TextAlign.Center,
+//                        fontWeight = FontWeight.Bold,
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .padding(vertical = 24.dp)
+//                    )
+//
+//                }
+//            }
+//        }
 
 
-        // Day 45
+// Day 46
+//        setContent {
+//            val snackbarHostState = remember { SnackbarHostState() }
+//            var textFieldState by remember {
+//                mutableStateOf("")
+//            }
+//            val scope = rememberCoroutineScope()
+//
+//
+//            Column(
+//                horizontalAlignment = Alignment.CenterHorizontally,
+//                verticalArrangement = Arrangement.Center,
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .padding(horizontal = 30.dp),
+//            ) {
+//                TextField(
+//                    value = textFieldState,
+//                    label = {
+//                        Text("Enter your name")
+//                    },
+//                    onValueChange = {
+//                        textFieldState = it
+//                    },
+//                    singleLine = true,
+//                    modifier = Modifier.fillMaxWidth(),
+//                )
+//                Spacer(Modifier.height(16.dp))
+//                Button(onClick = {
+//                    scope.launch {
+//                        snackbarHostState.showSnackbar("Hello $textFieldState")
+//                    }
+//                }) {
+//                    Text("Please Greet Me")
+//                }
+//            }
+//
+//        }
+
+// Day 45
 //        setContent {
 //            Column(
 //                Modifier.fillMaxSize()
@@ -110,7 +153,7 @@ class MainActivity : ComponentActivity() {
 //            }
 //    }
 
-//Day 44
+// Day 44
 //        val fontFamily = FontFamily(
 //            Font(R.font.opensans_bold),
 //            Font(R.font.opensans_bolditalic),
@@ -154,7 +197,7 @@ class MainActivity : ComponentActivity() {
 //            }
 //    }
 
-//Day 43
+// Day 43
 //            val painter = painterResource(id = R.drawable.photo);
 //            val description = "Prashant";
 //            val title = "Prashant Manandhar Photo";
@@ -181,9 +224,9 @@ class MainActivity : ComponentActivity() {
 //                }  }
 
 //        }
+//    }
     }
-
-//}
+}
 
 
 @Composable

@@ -1909,3 +1909,40 @@ fun main() {
 
 # Day 42 - Row and Column in JetPack Compose
 
+# Day 47
+
+**Method to create List view**
+* Make listView by columns
+```
+  val scrollState= rememberScrollState()
+  Column(Modifier.verticalScroll(scrollState)) {
+      for (i in 1..50) {
+          Text(
+              text = "Item $i",
+          )
+      }
+  }
+```
+
+* ListView using LazyColumn
+```
+    LazyColumn{
+        itemsIndexed(   //equivalent to for each loop
+            listOf("This","is","JetPack","Compose")
+        )
+        {
+            index,string->  Text(
+            text = string,
+            )
+        }
+    }
+
+or 
+    LazyColumn{
+        items(5000){      //equivalent to for loop
+            Text(
+               text = "Item $it",
+            )
+        }
+    }
+```
