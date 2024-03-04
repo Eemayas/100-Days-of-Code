@@ -1946,3 +1946,23 @@ or
         }
     }
 ```
+
+# Day 55
+Learn about Activity, Layouts, Android R.java, View, View Group, Layout Width, Linear Layout
+
+Notes:
+Modal==>in case of ecommerce, product,shop are modals
+view==> Ui (xml file in this case)
+Controller==> act as middle man between Modal and view
+R. file==> automatically generated file which constant all the unique int value of all resource like string, image and activities
+ViewGroup==> collection of different views or viewGroup
+Wrap content==> will take only space of the child,
+match parent==> will take as much space as the parent
+sp (Scale independent pixel ==> used for font ==> when user change the font size in setting it will increase the font size of the app too
+dp (density-independent pixels) ==>used for other
+
+Linear Layout
+--Horizonatally(default)
+--Vertically
+
+1st it will check and render the child and then it will check for layout width
