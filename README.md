@@ -1966,3 +1966,16 @@ Linear Layout
 --Vertically
 
 1st it will check and render the child and then it will check for layout width
+
+# Day 
+* Program - set of instruction
+* Process - When program gets executed. Process execute the intruction in thread/s
+    * Process ID
+    * State
+    * Memory
+    * Handle for Networking, File System
+
+* Sequntial Execution 
+    - one instructions after another execution
+    - Problem:- if one instruction take more time after process will be halt
+    - Solution:-  create new thread for different instruction. this will increase the performance
