@@ -1967,7 +1967,7 @@ Linear Layout
 
 1st it will check and render the child and then it will check for layout width
 
-# Day 
+# Day 62
 * Program - set of instruction
 * Process - When program gets executed. Process execute the intruction in thread/s
     * Process ID
@@ -1975,7 +1975,35 @@ Linear Layout
     * Memory
     * Handle for Networking, File System
 
-* Sequntial Execution 
+* Sequential Execution 
     - one instructions after another execution
     - Problem:- if one instruction take more time after process will be halt
     - Solution:-  create new thread for different instruction. this will increase the performance
+
+**Coroutines**
+- When the instruction begain its execution, it will acquire the thread from the thread pool. and beagin it execution. After some time, it raises the IO operation. so the acquired thread will not wait for the response but begain to execute the next execution until the response hasnot arrived. After the response has arrived, if the previous thread is free then it will use that thread, otherwise use the next thread from the thread pool.
+- Exected inside the thread
+- One thread can have multiple coroutines
+- Cheap
+- Limitation of thread is that you can create certain thread but there is no limitation like this
+
+**Dispactcher**
+- Dispatchers is a way to define threads on which Coroutines are executed.
+- Predefined Dispatchers
+    - Dispatchers-IO
+    - Dispatchers. Main 
+    - Dispatchers. Default
+
+**Start Thread**
+```
+thread(start=true){}
+```
+
+**Start Coorutine**
+```
+CoroutineScope(Dispatchers.IO).launch{}
+or
+GlobalScope.launch(Dispatchers.Main){}
+or
+MainScope().launch(Dispatchers.Default){}
+```
