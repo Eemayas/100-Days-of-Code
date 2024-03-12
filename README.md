@@ -2007,3 +2007,20 @@ GlobalScope.launch(Dispatchers.Main){}
 or
 MainScope().launch(Dispatchers.Default){}
 ```
+
+# Day 63 Supend function, Coroutine Builders
+- Suspending function can be create using suspend modifier
+```
+suspend fun Task1(){}
+```
+- Helps coroutine to suspend the computation at particular points
+- Must be called either from Coroutine or Other Suspending function
+- ``yield()`` or ``delay(1000)`` is used to define the suspension point
+
+**Coroutine Builders**
+- cancel
+- join
+
+- Use ``Launch`` - when you do not care about the result. (Fire & Forget)
+- Use ``Async`` - when you expect result/output from your coroutine
+- Although both can be used to achieve the same functionality but it is better to use things that are meant for it.
