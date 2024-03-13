@@ -2021,6 +2021,36 @@ suspend fun Task1(){}
 - cancel
 - join
 
-- Use ``Launch`` - when you do not care about the result. (Fire & Forget)
-- Use ``Async`` - when you expect result/output from your coroutine
+- Use ``Launch`` 
+    - when you do not care about the result. (Fire & Forget)
+    - will return job
+    
+- Use ``Async`` 
+    - when you expect result/output from your coroutine
+    - will return defered
+    
 - Although both can be used to achieve the same functionality but it is better to use things that are meant for it.
+
+
+# Day 64 -ViewModelsScope, defered, withContext, LIFECYCLESCOPE
+- ``defered`` is an instance of ``job``
+- child context doesnot need to explictly defined as the child content is same as parents or we can overide the context
+- withContent is blocking meaning i will wait and next code after this code will not run  until the content inside it finishes execution
+```
+withContext(Dispatcher.IO){}
+```
+- runBlocking is used to block the main thread until the execution hasnot complete
+``` 
+runBlocking{
+    launch{
+    }
+}
+```
+
+**ViewModelsScope**
+- Coroutine scope attached with your ``ViewModels``.
+- Coroutines in this scope will be cancelled automatically when viewmodel is cleared. We don't need to manually cancel the coroutines.
+
+**LIFECYCLESCOPE**
+- Coroutine scope attached with lifecycle (Activity or Fragments)
+- Coroutines in this scope will be cancelled automatically when lifecycle isdestroyed. We don't need to manually cancel the coroutines.
