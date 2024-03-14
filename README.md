@@ -2054,3 +2054,35 @@ runBlocking{
 **LIFECYCLESCOPE**
 - Coroutine scope attached with lifecycle (Activity or Fragments)
 - Coroutines in this scope will be cancelled automatically when lifecycle isdestroyed. We don't need to manually cancel the coroutines.
+- 
+# Day 65 - Flow
+- Producers emit data to the flow
+    - Data sources or Repositories
+- Consumers collect data from the flow
+    - UI layers
+
+- Datastore, Retrofir, Room, WorkManger all acts as dam and provide the flow
+- Flow can be created by
+    - Flow builder
+```
+    //Producer Block
+    while(true){
+        val userMessages = messagesApi. fetchLatestXessages( )
+        emit(userMessages) // Emits the result to the flow
+        delay(refreshIntervalMs) // Suspends for some time
+    }
+``` 
+- layer between  producer and consumer can also modify the data to adjus the requirement of the following layers
+- It can be done by intermediate operators
+- Upstream flow refers to the flow produced by the producer block and producer before the current one
+- Downstream is refers to all the things after current operators
+- Collecting flow is generally happen in the UI
+- Uses terminal operator to listen for values
+```
+userMessages.collect { messages ->
+    listAdapter. submitList (messages )
+}
+```
+
+- StateFlow holds data even if there is no collectors
+- 
