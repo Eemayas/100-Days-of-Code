@@ -2085,4 +2085,9 @@ userMessages.collect { messages ->
 ```
 
 - StateFlow holds data even if there is no collectors
+
+# Day 66 - LiveData
+- Reside between viewmodel and view
+- Data model class that are observable meaning it can be used to hold and observe data
+- helps to inform other when that data has been changed
 - 
