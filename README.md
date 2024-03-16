@@ -2090,4 +2090,45 @@ userMessages.collect { messages ->
 - Reside between viewmodel and view
 - Data model class that are observable meaning it can be used to hold and observe data
 - helps to inform other when that data has been changed
-- 
+
+# Day 67 - Dependency Injection, Manual Injection, Dagger 2
+**Type of Dependency Injection**
+- Constructor Injection
+```
+class Car(private var engine:Engine){
+    fun driveCar(){
+        engine.start()
+    }
+}
+```
+- Field injection
+```
+class Car(){
+    private var engine:Engine    
+
+    fun driveCar(){
+        engine.start()
+    }
+}
+```
+**Dependency Injection**
+- Car class is  testable
+- Code is extensible
+- Single Responsibility
+- Lifetime Of Objects ( Reusability )
+
+**Dagger 2**
+- A framework for dependency injection
+- Dagger is a fully static, compile-time dependency injection framework
+- Compile time checking is performed if Dagger can create the required objects.
+- Annotation Based.
+- Will behave as a system for us to create required objects.
+- Will help us inject these objects.
+- Will manage the lifetime of the objects.
+- Will help us write manageable code.
+
+**Concept**
+- Consumer (@lnject)
+- Producer (@Module, @Provides, @Binds)
+- Connecter (@Component)
+
