@@ -2132,3 +2132,8 @@ class Car(){
 - Producer (@Module, @Provides, @Binds)
 - Connecter (@Component)
 
+# Day 68
+```
+class clasName @Inject constructor(){
+}
+```
